@@ -27,7 +27,6 @@ document.querySelector('form').addEventListener('submit', (event) => {
                 document.querySelector("#deaths").textContent = data.deaths + ' deaths';
                 document.querySelector("#recovered").textContent = data.recovered + ' recovered';
                 document.querySelector("#active").textContent = data.active + ' active';
-                document.querySelectorAll("h6").forEach((h) => h.textContent = 'As of ' + data.date );
             }
             
         });

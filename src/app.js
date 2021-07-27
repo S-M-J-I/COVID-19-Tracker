@@ -38,30 +38,21 @@ app.get('/covid', (req, res) => {
 
     let countryQuery = req.query.country.toLowerCase();
 
-    if(countryQuery.includes(' ')){
-        countryQuery = countryQuery.replace(' ', '-');
-    }
-
     getCovidData(countryQuery, (error, data) => {
 
 
-        if(error && data === undefined){
+        if(error){
             return res.send({
                 error               
             });
         }
         
-        // format date
-        let date = data[data.length-1].Date;
-        date = date.split('T')[0];
-        date = date.split('-');
-        date = `${date[2]}-${date[1]}-${date[0]}`;
 
         // format the numbers
-        const confirmed = data[data.length-1].Confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        const deaths = data[data.length-1].Deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        const recovered = data[data.length-1].Recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        const active = data[data.length-1].Active.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        const confirmed = data.todayCases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        const deaths = data.todayDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        const recovered = data.todayRecovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        const active = data.active.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
         res.send({
             title: 'Results',
@@ -69,8 +60,7 @@ app.get('/covid', (req, res) => {
             confirmed: confirmed,
             deaths: deaths,
             recovered: recovered,
-            active: active,
-            date: date
+            active: active
         });
     });
 
