@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}
+</head>
+<body>
+    {{>nav}}
+    <section class="main">
+        <h1>Results for {{country}}: </h1>
+        <div class="covid-holder">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title">{{confirmed}} Confirmed</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">The recent number of confirmed cases as of {{date}}</h6>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title">{{deaths}} Deaths</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">The recent number of deaths as of {{date}}</h6>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title">{{recovered}} Recovered</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">The recent number of recovers as of {{date}}</h6>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title">{{active}} Active</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">The recent number of active cases as of {{date}}</h6>
+                </div>
+            </div>
+        </div>
+        
+
+    </section>
+</body>
+<footer>
+    {{>footer}}
+</footer>
+</html>

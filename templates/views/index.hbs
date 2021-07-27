@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}
+</head>
+<body>
+    {{>nav}}
+    <section class="main">
+        <h1 class="main-header">Get recent information about COVID-19 in a country</h1>
+
+        <form>
+            <input size="20" type="text" name="country" placeholder="Enter country">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div>
+            <br>
+            <br>
+        </div>
+        <div class="loading">
+            <h2 class="country-name" style="display: none;"></h2>
+            <div class="spinner-border text-primary" role="status" style="display: none;">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="covid-holder" style="display: none;">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title" id="confirmed"></h3>
+                    <h6 class="card-subtitle mb-2 text-muted"></h6>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title" id="deaths"></h3>
+                    <h6 class="card-subtitle mb-2 text-muted"></h6>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title" id="recovered"></h3>
+                    <h6 class="card-subtitle mb-2 text-muted"></h6>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title" id="active"></h3>
+                    <h6 class="card-subtitle mb-2 text-muted"></h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/app.js"></script>
+</body>
+<footer>
+    {{>footer}}
+</footer>
+</html>
