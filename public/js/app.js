@@ -21,13 +21,20 @@ document.querySelector('form').addEventListener('submit', (event) => {
             if(data.error) {
                 document.querySelector('.country-name').textContent = data.error;
             } else {
-                document.querySelector('.covid-holder').style.display = 'flex';
-                document.querySelector('.country-name').textContent = 'Data for ' + data.country;
-                document.querySelector("#confirmed").textContent = data.confirmed + ' confirmed';
-                document.querySelector("#deaths").textContent = data.deaths + ' deaths';
-                document.querySelector("#recovered").textContent = data.recovered + ' recovered';
-                document.querySelector("#active").textContent = data.active + ' active';
-                document.querySelectorAll("h6").forEach((h) => h.textContent = 'As of ' + new Date().toLocaleDateString() );
+
+                if(data.confirmed == 0 && data.deaths == 0 && data.recovered == 0){
+                    document.querySelector('.country-name').textContent = 'Today\'s cases haven\'t been reported yet!';
+                } else {
+                    document.querySelector('.covid-holder').style.display = 'flex';
+                    document.querySelector('.country-name').textContent = 'Data for ' + data.country;
+                    document.querySelector("#confirmed").textContent = data.confirmed + ' confirmed';
+                    document.querySelector("#deaths").textContent = data.deaths + ' deaths';
+                    document.querySelector("#recovered").textContent = data.recovered + ' recovered';
+                    document.querySelector("#active").textContent = data.active + ' active';
+                    document.querySelectorAll("h6").forEach((h) => h.textContent = 'As of ' + new Date().toLocaleDateString() );
+                }
+
+                
                 
             }
             
