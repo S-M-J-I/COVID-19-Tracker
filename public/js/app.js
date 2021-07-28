@@ -13,7 +13,7 @@ document.querySelector('form').addEventListener('submit', (event) => {
     document.querySelector('.country-name').textContent = 'Loading for ' + country + '.....';
     document.querySelector('.spinner-border').style.display = 'flex';
 
-    fetch('http://localhost:3000/covid?country=' + country).then((response) => {
+    fetch('/covid?country=' + country).then((response) => {
         response.json().then((data) => {
 
             document.querySelector('.spinner-border').style.display = 'none';
