@@ -20,7 +20,7 @@ app.use(express.static(publicDir));
 hbs.registerPartials(partialsDir);
 
 // home page
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index', {
         title: 'Home'
     });
