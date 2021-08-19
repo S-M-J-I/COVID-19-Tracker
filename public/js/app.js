@@ -12,6 +12,7 @@ document.querySelector('form').addEventListener('submit', (event) => {
     document.querySelector('.country-name').style.display = 'block';
     document.querySelector('.country-name').textContent = 'Loading for ' + country + '.....';
     document.querySelector('.spinner-border').style.display = 'flex';
+    document.querySelector('.country-flag').style.display = 'none';
 
     fetch('/covid?country=' + country).then((response) => {
         response.json().then((data) => {
