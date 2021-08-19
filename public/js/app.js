@@ -25,6 +25,8 @@ document.querySelector('form').addEventListener('submit', (event) => {
                 if(data.confirmed == 0 && data.deaths == 0 && data.recovered == 0){
                     document.querySelector('.country-name').textContent = 'Today\'s cases haven\'t been reported yet!';
                 } else {
+                    document.querySelector('.country-flag').style.display = 'inline-block';
+                    document.querySelector('#flag').src = data.flag;
                     document.querySelector('.covid-holder').style.display = 'flex';
                     document.querySelector('.country-name').textContent = 'Data for ' + data.country;
                     document.querySelector("#confirmed").textContent = data.confirmed + ' confirmed';

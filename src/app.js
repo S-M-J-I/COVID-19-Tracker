@@ -60,7 +60,8 @@ app.get('/covid', (req, res) => {
             confirmed: confirmed,
             deaths: deaths,
             recovered: recovered,
-            active: active
+            active: active,
+            flag: data.countryInfo.flag
         });
     });
 

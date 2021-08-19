@@ -7,6 +7,12 @@
     
 }
 
+.country-flag{
+    display: inline-block;
+    border-style: solid;
+    border-width: thin;
+}
+
 .loading {
     display: flex;
     flex-direction: column;
